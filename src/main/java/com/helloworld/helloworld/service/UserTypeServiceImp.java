@@ -3,6 +3,7 @@ package com.helloworld.helloworld.service;
 import com.helloworld.helloworld.model.UserTypeModel;
 import com.helloworld.helloworld.repository.UserTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,6 +24,18 @@ public class UserTypeServiceImp implements UserTypeService {
     public UserTypeModel getUserById(long id) {
         return userTypeRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public UserTypeModel findUserByUserName(String userName) {
+        return null;
+    }
+
+   /* @Override
+    public UserTypeModel findUserByUserName(String userName) {
+        return (UserTypeModel) userTypeRepository.findAll(userName)
+    }
+    */
+
 
 
     @Override

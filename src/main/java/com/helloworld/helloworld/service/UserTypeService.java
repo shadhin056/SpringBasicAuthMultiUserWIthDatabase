@@ -6,6 +6,7 @@ public interface UserTypeService {
     void addUser(UserTypeModel userTypeModel);
 
     UserTypeModel getUserById(long id);
+    UserTypeModel findUserByUserName(String userName);
 
     List<UserTypeModel> getAllUser();
 

@@ -19,19 +19,24 @@ import sun.misc.BASE64Encoder;
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class MultipleEntryPointsSecurityConfig {
     @Autowired
     UserTypeServiceImp userTypeServiceImp;
 
-    @Bean
+
+
+    /*@Bean
     public UserDetailsService userDetailsService() throws Exception {
+
+
+
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 
-    /*for(UserTypeModel model: list){
+    *//*for(UserTypeModel model: list){
         System.out.println("User name: "+model.getUsername());
-    }*/
+    }*//*
         String authString= "1111:1111";
         String encod_user_pass = new BASE64Encoder().encode(authString.getBytes());
         String authStringEnc = "Basic " + encod_user_pass;
@@ -56,7 +61,7 @@ public class MultipleEntryPointsSecurityConfig {
                     .password(encoder().encode(model.getPassword()))
                     .roles(model.getUser_type()).build());
         }
-        /*for(int i=0;i<3;i++){
+        *//*for(int i=0;i<3;i++){
             if(i==0){
                 String a="user";
                 manager.createUser(User
@@ -77,10 +82,10 @@ public class MultipleEntryPointsSecurityConfig {
                         .roles(a).build());
             }
 
-        }*/
+        }*//*
 
         return manager;
-    }
+    }*/
 
     @Bean
     public PasswordEncoder encoder() {
