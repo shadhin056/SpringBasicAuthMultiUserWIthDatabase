@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import sun.misc.BASE64Encoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,22 @@ public class MultipleEntryPointsSecurityConfig {
     /*for(UserTypeModel model: list){
         System.out.println("User name: "+model.getUsername());
     }*/
+        String authString= "1111:1111";
+        String encod_user_pass = new BASE64Encoder().encode(authString.getBytes());
+        String authStringEnc = "Basic " + encod_user_pass;
+        System.out.println("authStringEnc = " + authStringEnc);
+
+        String authString1= "2222:2222";
+        String encod_user_pass1 = new BASE64Encoder().encode(authString1.getBytes());
+        String authStringEnc1 = "Basic " + encod_user_pass1;
+        System.out.println("authStringEnc = " + authStringEnc1);
+
+        String authString2= "3333:3333";
+        String encod_user_pass2 = new BASE64Encoder().encode(authString2.getBytes());
+        String authStringEnc2 = "Basic " + encod_user_pass2;
+        System.out.println("authStringEnc = " + authStringEnc2);
+
+
         System.out.println(userTypeServiceImp.getAllUser());
         List<UserTypeModel> list = userTypeServiceImp.getAllUser();
         for (UserTypeModel model : list) {

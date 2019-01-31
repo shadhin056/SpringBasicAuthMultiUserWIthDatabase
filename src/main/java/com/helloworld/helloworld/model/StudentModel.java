@@ -16,6 +16,12 @@ public class StudentModel {
     @Column(name = "department")
     private String department;
 
+    @Transient
+    private String outcode;
+
+    @Transient
+    private String outMessage;
+
     public StudentModel() {
     }
 
@@ -55,5 +61,22 @@ public class StudentModel {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+
+    public String getOutcode() {
+        return outcode;
+    }
+
+    public void setOutcode(String outcode) {
+        this.outcode = outcode;
+    }
+
+    public String getOutMessage() {
+        return outMessage;
+    }
+
+    public void setOutMessage(String outMessage) {
+        this.outMessage = outMessage;
     }
 }

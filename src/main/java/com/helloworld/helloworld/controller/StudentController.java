@@ -5,6 +5,7 @@ import com.helloworld.helloworld.service.StudentServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -37,8 +38,10 @@ public class StudentController {
     }
 
     //Get student by id
-    @PostMapping("/admin/{id}/admin")
+    @PostMapping("/admin/{id}/admin11")
     public String getStudentById(@PathVariable("id") int id) {
+
+
 
         if (id == 1111) {
             return "1111";
@@ -53,6 +56,43 @@ public class StudentController {
         } else {
             return "Invalid";
         }
+    }
+
+
+    @PostMapping("/admin/{id}/admin")
+    public  @ResponseBody List<StudentModel> dorepsonlist(@PathVariable("id") String id) {
+        System.out.println("ID**********=="+id);
+
+        List<StudentModel>  list = new ArrayList<>();
+        StudentModel studentModel = new StudentModel();
+        if ("1111".equals(id)) {
+            studentModel.setOutcode("1111");
+            studentModel.setOutMessage("User Is 1111");
+           list.add(studentModel);
+        } else if ("2222".equals(id)) {
+
+            studentModel.setOutcode("2222");
+            studentModel.setOutMessage("User Is 2222");
+            list.add(studentModel);
+        } else if ("3333".equals(id)) {
+            studentModel.setOutcode("3333");
+            studentModel.setOutMessage("User Is 3333");
+            list.add(studentModel);
+        } else if ("4444".equals(id)) {
+            studentModel.setOutcode("4444");
+            studentModel.setOutMessage("User Is 4444");
+            list.add(studentModel);
+        } else if ("5555".equals(id)) {
+            studentModel.setOutcode("5555");
+            studentModel.setOutMessage("User Is 5555");
+            list.add(studentModel);
+        } else {
+            studentModel.setOutcode("5161241");
+            studentModel.setOutMessage("User Is Invalid");
+            list.add(studentModel);
+        }
+
+        return list;
     }
 
     //delete data
